@@ -73,8 +73,18 @@ class AnotacaoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(string $id)
+    {
+        if(Anotacao::find($id)->delete())
+            return redirect('/anotacaos');
+        else dd($id);
+    }
+
     public function destroy(string $id)
     {
-        //
+        if($request->confirmar==="deletar")
+            if(!Anotacao::destroy($id))
+                dd("erro ao deletar anotacao $id !");
+        return redirect('/anotacaos');
     }
 }

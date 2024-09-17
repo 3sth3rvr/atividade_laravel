@@ -27,13 +27,14 @@
                 <td>{{$anotacao->Conteudo}}</td>
                 <td>{{$anotacao->dia}}</td>
                 <td>
+                    {{-- <a href="{{route('delete',$anotacao->id)}} title='Deletar'">&#128465</a> --}}
                     <a href="{{route('anotacaoDelete',$anotacao->id)}}" tittle='Deletar'>&#128465</a>
-                    <a href="{{route('anotacaoEdit',$anotacao->id)}}" tittle='Editar'>&#128465</a>
+                    <a href="{{route('anotacaoEdit',$anotacao->id)}}" tittle='Editar'>&#128497</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
-        <a href="/anotacao">&#9664;Criar</a>
+        <a href="/anotacao">&#9764;Criar</a>
     </table>
     @else
     <p>Produtos não encontrados! </p>

@@ -31,4 +31,6 @@ Route::post('anotacao',[AnotacaoController::class,'store']);
 Route::get('anotacao/{id}/edit',[AnotacaoController::class,'edit'])->name("anotacaoEdit");
 Route::get('anotacao/{id}/delete',[AnotacaoController::class,'delete'])->name("anotacaoDelete");
 Route::post('anotacao/{id}',[AnotacaoController::class,'update']);
+Route::post('anotacao/{id}/delete',[AnotacaoController::class,'delete'])->name('delete');
+// Route::post('anotacao/{id}/delete',[AnotacaoController::class,'destroy'])->name('destroy');
 Route::get('tarefa',[TarefaController::class,'index']);
