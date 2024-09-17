@@ -34,7 +34,7 @@
             </tr>
             @endforeach
         </tbody>
-        <a href="/anotacao">&#9764;Criar</a>
+        <a href="/anotacao">&#9765;Criar</a>
     </table>
     @else
     <p>Produtos não encontrados! </p>

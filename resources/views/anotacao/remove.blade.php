@@ -8,30 +8,26 @@
     <title>Anotacoes</title>
 </head>
 <body>
-    @if ($produto)
-        <h1>{{ $produto->nome }}</h1>
-        <p>{{ $produto->descricao }}</p>
-        <ul>
-            <li>Quantidade: {{ $produto->qtd_estoque }}</li>
-            <li>Preço: {{ $produto->preco }}</li>
-            <li>Importado: {{ $produto->importado ? 'Sim' : 'Não' }}</li>
-        </ul>
+    @if ($anotacao)
+        <h1>{{ $anotacao->Titulo }}</h1>
+        <p>{{ $anotacao->Conteudo }}</p>
+        <p>{{ $anotacao->data }}</p>
         <table>
             <tr>
                 <td>
-                    <form action="{{ route('produto.remove',$produto->id) }}" method='post'>
+                    <form action="{{ route('remove',$anotacao->id) }}" method='post'>
                         @csrf
                         <input type="submit" name='confirmar' value="Remover" />
                     </form>
                 </td>
                 <td>
-                    <a href="/produtos"><button>Cancelar</button></a>
+                    <a href="/anotacaos"><button>Cancelar</button></a>
                 </td>
             </tr>
         </table>
     @else
-        <p>Produtos não encontrados! </p>
+        <p>anotacaos não encontrados! </p>
     @endif
-    <a href="/produtos">&#9664;Voltar</a>
+    <a href="/anotacaos">&#9664;Voltar</a>
 </body>
 </html>

@@ -51,9 +51,8 @@ class AnotacaoController extends Controller
      */
     public function edit(string $id)
     {
-        return view('anotacao.edit',[
-            "anotacao"=>Anotacao::find($id)
-        ]);
+        $data = ['anotacao'=>Anotacao::find($id)];
+        return view('anotacao.edit',$data);
     }
 
     /**
@@ -61,9 +60,9 @@ class AnotacaoController extends Controller
      */
     public function update(Request $request, $id){
 
-        $dados = $request->all();
+        // $dados = $request->all();
         // $dados['importado'] = $request->has('importado');
-
+        $dados = $request->all();
         if(!Anotacao::find($id)->update($dados))
             dd("Erro!!!");
 
@@ -73,16 +72,20 @@ class AnotacaoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(string $id)
+    public function delete($id)
     {
-        if(Anotacao::find($id)->delete())
-            return redirect('/anotacaos');
-        else dd($id);
+        // if(Anotacao::find($id)->delete())
+        //     return redirect('/anotacaos');
+        // else dd($id);
+
+        return view('anotacao.remove',[
+            'anotacao'=> Anotacao::find($id)
+        ]);
     }
 
-    public function destroy(string $id)
+    public function remove(Request $request, $id)
     {
-        if($request->confirmar==="deletar")
+        if($request->confirmar==="Remover")
             if(!Anotacao::destroy($id))
                 dd("erro ao deletar anotacao $id !");
         return redirect('/anotacaos');
